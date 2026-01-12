@@ -20,7 +20,9 @@
     "@nuxt/ui": "^4.3.0",
     "@pinia/nuxt": "^0.11.3",
     "axios": "^1.13.2",
-    "nuxt": "^4.2.2"
+    "nuxt": "^4.2.2",
+    "sweetalert2": "^11.26.17",
+    "tostr": "^0.1.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",
