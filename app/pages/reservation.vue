@@ -52,7 +52,7 @@
               class="w-full px-5 py-4 rounded-xl border border-[#DADADA] focus:outline-none focus:ring-2 focus:ring-[#9F6E45]"
             />
 
-            <textarea
+            <textarea 
               rows="4"
               placeholder="Message ou précision"
               class="md:col-span-2 w-full px-5 py-4 rounded-xl border border-[#DADADA] focus:outline-none focus:ring-2 focus:ring-[#9F6E45]"

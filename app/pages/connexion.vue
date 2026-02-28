@@ -25,10 +25,11 @@
             Accédez à votre compte et gérez vos commandes en toute simplicité.
           </p>
 
-          <form class="space-y-5">
+          <form class="space-y-5" @submit.prevent="submitForm">
             <div>
               <label class="text-sm text-gray-700">Email</label>
               <input
+              v-model="form.email"
                 type="email"
                 placeholder="exemple@email.com"
                 class="w-full border p-3 text-sm mt-1
@@ -39,6 +40,7 @@
             <div>
               <label class="text-sm text-gray-700">Mot de passe</label>
               <input
+              v-model="form.password"
                 type="password"
                 placeholder="••••••••"
                 class="w-full border p-3 text-sm mt-1
@@ -86,3 +88,29 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref, computed } from 'vue'
+import { useAuthStore } from '~/stores/auth';
+
+
+const authStore = useAuthStore();
+const form = ref({
+  email: '',
+  password: ''
+}); 
+
+const submitForm = () => {
+  // Simulate login
+  try {
+    authStore.login(form.value);
+    // Redirect to home page after successful login
+    // window.location.href = '/';
+  } catch (error) {
+    console.error('Login failed:', error);
+    alert('Échec de la connexion. Veuillez vérifier vos informations et réessayer.');
+  }
+ 
+};
+
+</script>

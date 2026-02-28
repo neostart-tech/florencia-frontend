@@ -102,12 +102,12 @@ const slides = [
   {
     title: 'Des soins premium\npour sublimer votre style',
     text: 'Chaque détail est pensé pour mettre en valeur votre beauté naturelle avec élégance et professionnalisme.',
-    image: '/salon2.jpg',
+    image: '/salon.jpg',
   },
   {
     title: 'Florencia Beauty,\nl’excellence au féminin',
     text: 'Réservez votre rendez-vous et vivez une expérience beauté unique, entre luxe, douceur et modernité.',
-    image: '/salon3.jpg',
+    image: '/salon1.jpg',
   },
 ]
 

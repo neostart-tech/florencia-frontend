@@ -6,14 +6,14 @@
                grid grid-cols-1 md:grid-cols-2
                shadow-xl rounded-lg overflow-hidden"
       >
-        <!-- IMAGE -->
-        <div class="hidden md:block">
-          <img
-            src="/h.jpg"
-            alt="Inscription"
-            class="w-full h-full object-cover"
-          />
-        </div>
+          <!-- IMAGE -->
+          <div class="hidden md:block">
+            <img
+              src="/h.jpg"
+              alt="Inscription"
+              class="w-full h-full object-cover"
+            />
+          </div>
 
         <!-- FORM -->
         <div class="p-10">
