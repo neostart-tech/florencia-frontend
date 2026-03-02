@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from "nuxt/app";
-import config from "../../config";
+import config from "../../nust.config";
 import * as axios from "axios";
 
 const baseURL = config.app_local ? config.app_api_dev_url : config.app_api_deploy_url;
