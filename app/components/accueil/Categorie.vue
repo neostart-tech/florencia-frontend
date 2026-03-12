@@ -12,26 +12,23 @@
 
       <!-- Grille des catégories -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-        <NuxtLink
-          v-for="category in categories"
-          :key="category.name"
-          :to="category.link"
-          class="group relative block"
-        >
-          <div class="relative bg-[#F3F3F3] rounded-xl p-6 md:p-8 transition-all duration-300 group-hover:bg-white group-hover:shadow-lg group-hover:-translate-y-1 border border-transparent group-hover:border-[#9F6E45]/20">
-            <h3 class="font-['Raleway'] text-base md:text-lg font-light text-center text-[#343434] group-hover:text-[#9F6E45] transition-colors duration-300">
+        <NuxtLink v-for="category in categories" :key="category.name" :to="category.link" class="group relative block">
+          <div
+            class="relative bg-[#F3F3F3] rounded-xl p-6 md:p-8 transition-all duration-300 group-hover:bg-white group-hover:shadow-lg group-hover:-translate-y-1 border border-transparent group-hover:border-[#9F6E45]/20">
+            <h3
+              class="font-['Raleway'] text-base md:text-lg font-light text-center text-[#343434] group-hover:text-[#9F6E45] transition-colors duration-300">
               {{ category.name }}
             </h3>
-            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-0 h-px bg-[#9F6E45]/50 transition-all duration-300 group-hover:w-8"></div>
+            <div
+              class="absolute bottom-3 left-1/2 -translate-x-1/2 w-0 h-px bg-[#9F6E45]/50 transition-all duration-300 group-hover:w-8">
+            </div>
           </div>
         </NuxtLink>
       </div>
 
       <div class="text-center mt-10 md:mt-12">
-        <NuxtLink
-          to="/boutique"
-          class="inline-flex items-center gap-2 font-['Raleway'] text-sm text-[#9F6E45] border-b border-[#9F6E45]/30 pb-0.5 hover:border-[#9F6E45] transition-all duration-300 group"
-        >
+        <NuxtLink to="/boutique"
+          class="inline-flex items-center gap-2 font-['Raleway'] text-sm text-[#9F6E45] border-b border-[#9F6E45]/30 pb-0.5 hover:border-[#9F6E45] transition-all duration-300 group">
           <span>Explorer tous nos univers</span>
           <span class="text-lg transform group-hover:translate-x-1 transition-transform">→</span>
         </NuxtLink>

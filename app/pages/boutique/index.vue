@@ -1,14 +1,15 @@
 <template>
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 bg-gradient-to-b from-gray-50 to-white">
-   
-    
+
+
     <div class="mb-12 text-center relative">
       <div class="absolute inset-0 flex items-center justify-center -z-10 opacity-5">
         <svg class="w-64 h-64 text-[#8C6239]" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
         </svg>
       </div>
-      <h1 class="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8C6239] to-[#C49A6C] bg-clip-text text-transparent">
+      <h1
+        class="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#8C6239] to-[#C49A6C] bg-clip-text text-transparent">
         Boutique Beauté
       </h1>
       <p class="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -16,36 +17,56 @@
       </p>
       <div class="w-24 h-1 bg-gradient-to-r from-[#8C6239] to-[#C49A6C] mx-auto mt-4 rounded-full"></div>
     </div>
-   
+
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
       <aside class="lg:col-span-1 h-fit lg:sticky lg:top-24">
-        <div class="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-[#8C6239] scrollbar-track-gray-100">
-         
+        <!-- Mobile Toggle Button -->
+        <div class="lg:hidden mb-4">
+          <button @click="showMobileFilters = !showMobileFilters"
+            class="w-full bg-white border border-gray-200 rounded-2xl p-4 flex justify-between items-center shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#8C6239]/20 transition-all">
+            <span class="font-bold flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#8C6239]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+              Filtres
+            </span>
+            <svg class="w-5 h-5 transition-transform duration-300" :class="{ 'rotate-180': showMobileFilters }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <div :class="{ 'hidden lg:block': !showMobileFilters, 'block': showMobileFilters }"
+          class="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-[#8C6239] scrollbar-track-gray-100 mb-8 lg:mb-0">
+
           <div class="flex justify-between items-center mb-6">
             <h2 class="font-bold text-lg text-gray-800 flex items-center gap-2">
               <svg class="w-5 h-5 text-[#8C6239]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
               Filtres
             </h2>
-            <button @click="resetFilters" class="text-sm text-[#8C6239] hover:text-[#5C3E29] transition-colors flex items-center gap-1">
+            <button @click="resetFilters"
+              class="text-sm text-[#8C6239] hover:text-[#5C3E29] transition-colors flex items-center gap-1">
               <svg class="w-4 h-4 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               Réinitialiser
             </button>
           </div>
 
           <div class="relative mb-6">
-            <input
-              v-model="search"
-              type="text"
-              placeholder="Rechercher un produit..."
-              class="w-full border border-gray-200 rounded-xl px-4 py-3 pl-11 text-sm focus:outline-none focus:ring-2 focus:ring-[#8C6239]/20 focus:border-[#8C6239] transition-all"
-            />
-            <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            <input v-model="search" type="text" placeholder="Rechercher un produit..."
+              class="w-full border border-gray-200 rounded-xl px-4 py-3 pl-11 text-sm focus:outline-none focus:ring-2 focus:ring-[#8C6239]/20 focus:border-[#8C6239] transition-all" />
+            <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
 
@@ -54,11 +75,25 @@
               <span class="w-1 h-4 bg-[#8C6239] rounded-full"></span>
               Catégories
             </h3>
-            <div class="space-y-2">
-              <label v-for="cat in categories" :key="cat" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <input type="checkbox" :value="cat" v-model="filters.categories" class="w-4 h-4 text-[#8C6239] border-gray-300 rounded focus:ring-[#8C6239]">
-                <span class="text-sm text-gray-700 group-hover:text-[#8C6239] transition-colors">{{ cat }}</span>
-              </label>
+            <div class="space-y-3">
+              <div v-for="cat in categoriesTree" :key="cat.name" class="border-b border-gray-50 pb-2 last:border-0">
+                <label
+                  class="flex items-center gap-3 p-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                  <input type="checkbox" :value="cat.name" v-model="filters.categories"
+                    @change="handleCategoryChange(cat.name)"
+                    class="w-4 h-4 text-[#8C6239] border-gray-300 rounded focus:ring-[#8C6239]">
+                  <span class="text-sm font-medium text-gray-700 group-hover:text-[#8C6239] transition-colors">{{
+                    cat.name }}</span>
+                </label>
+                <div v-if="filters.categories.includes(cat.name)" class="ml-6 mt-1 space-y-1">
+                  <label v-for="sub in cat.subCategories" :key="sub"
+                    class="flex items-center gap-3 p-1 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                    <input type="checkbox" :value="sub" v-model="filters.subCategories"
+                      class="w-3.5 h-3.5 text-[#8C6239] border-gray-300 rounded focus:ring-[#8C6239]">
+                    <span class="text-xs text-gray-600 group-hover:text-[#8C6239] transition-colors">{{ sub }}</span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -67,7 +102,7 @@
               <span class="w-1 h-4 bg-[#8C6239] rounded-full"></span>
               Prix (FCFA)
             </h3>
-           
+
             <div class="flex justify-between mb-4">
               <div class="bg-gray-100 rounded-lg px-3 py-1.5 text-sm font-medium text-gray-700">
                 {{ filters.minPrice.toLocaleString() }} FCFA
@@ -79,40 +114,18 @@
             </div>
             <div class="relative py-4">
               <div class="absolute top-1/2 -translate-y-1/2 w-full h-1 bg-gray-200 rounded-full"></div>
-             
-              <div class="absolute top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-[#8C6239] to-[#C49A6C] rounded-full"
-                   :style="{ left: (filters.minPrice / priceRange.max) * 100 + '%', width: ((filters.maxPrice - filters.minPrice) / priceRange.max) * 100 + '%' }">
+
+              <div
+                class="absolute top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-[#8C6239] to-[#C49A6C] rounded-full"
+                :style="{ left: (filters.minPrice / priceRange.max) * 100 + '%', width: ((filters.maxPrice - filters.minPrice) / priceRange.max) * 100 + '%' }">
               </div>
-              <input
-                type="range"
-                :min="priceRange.min"
-                :max="priceRange.max"
-                v-model.number="filters.minPrice"
-                class="range-slider"
-                :style="{ zIndex: filters.minPrice > priceRange.max / 2 ? 30 : 20 }"
-              />
-              <input
-                type="range"
-                :min="priceRange.min"
-                :max="priceRange.max"
-                v-model.number="filters.maxPrice"
-                class="range-slider"
-              />
+              <input type="range" :min="priceRange.min" :max="priceRange.max" v-model.number="filters.minPrice"
+                class="range-slider" :style="{ zIndex: filters.minPrice > priceRange.max / 2 ? 30 : 20 }" />
+              <input type="range" :min="priceRange.min" :max="priceRange.max" v-model.number="filters.maxPrice"
+                class="range-slider" />
             </div>
           </div>
 
-          <div class="flex items-center justify-between p-3 bg-gradient-to-r from-[#8C6239]/5 to-transparent rounded-xl">
-            <span class="text-sm font-medium text-gray-700 flex items-center gap-2">
-              <svg class="w-5 h-5 text-[#8C6239]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
-              </svg>
-              En promotion
-            </span>
-            <label class="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" v-model="filters.promoOnly" class="sr-only peer">
-              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-[#8C6239]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#8C6239]"></div>
-            </label>
-          </div>
 
           <div class="pt-4 mt-4 border-t border-gray-100">
             <div class="bg-[#8C6239]/5 rounded-lg p-3 text-center">
@@ -126,13 +139,12 @@
 
       <div class="lg:col-span-3">
         <!-- Barre de tri -->
-        <div class="flex flex-col sm:flex-row justify-between sm:justify-end items-center mb-6 bg-white p-4 rounded-xl shadow-sm">
+        <div
+          class="flex flex-col sm:flex-row justify-between sm:justify-end items-center mb-6 bg-white p-4 rounded-xl shadow-sm">
           <div class="flex items-center gap-2">
             <span class="text-sm text-gray-500">Trier par:</span>
-            <select
-              v-model="sortBy"
-              class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#8C6239]/20 focus:border-[#8C6239] bg-white"
-            >
+            <select v-model="sortBy"
+              class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#8C6239]/20 focus:border-[#8C6239] bg-white">
               <option value="nom">Nom (A-Z)</option>
               <option value="prix">Prix croissant</option>
               <option value="prix-desc">Prix décroissant</option>
@@ -140,171 +152,210 @@
           </div>
         </div>
 
-        <div
-          v-if="filteredProduits.length"
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
-        >
-          <div
-            v-for="p in sortedProduits"
-            :key="p.id"
-            class="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 overflow-hidden cursor-pointer"
-          >
-            <!-- Badge promotion -->
-            <div v-if="p.promotion" class="absolute top-1 left-1 z-10 bg-gradient-to-r from-gray-800 to-black text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-lg">
-              -{{ p.promotion }}%
+        <div v-if="filteredProduits.length" class="flex flex-col w-full">
+          <!-- Grille de produits -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+            <div v-for="p in paginatedProduits" :key="p.id" @click="toggleActiveProduct(p.id)"
+              :class="{ 'shadow-lg -translate-y-0.5 ring-2 ring-[#8C6239]/20': activeProductId === p.id }"
+              class="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer flex flex-col h-full">
+
+              <div class="relative overflow-hidden aspect-[4/5] sm:aspect-square">
+                <img :src="p.image" :alt="p.nom" :class="{ 'scale-110': activeProductId === p.id }"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  @error="handleImageError" />
+                <div :class="{ 'opacity-100': activeProductId === p.id }"
+                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <!-- Actions -->
+                <div :class="{ 'right-3 opacity-100': activeProductId === p.id }"
+                  class="absolute top-1/2 -translate-y-1/2 flex flex-col gap-3 -right-16 opacity-0 group-hover:right-3 group-hover:opacity-100 transition-all duration-500 ease-out z-10">
+                  <button @click.stop="addToCart(p)"
+                    class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-[#8C6239] hover:text-white transition-all duration-200 hover:scale-110 active:scale-95">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                  </button>
+                  <button @click.stop="navigateToDetails(p.id)"
+                    class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-[#8C6239] hover:text-white transition-all duration-200 hover:scale-110 active:scale-95">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-3 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3 :class="{ 'text-[#8C6239]': activeProductId === p.id }"
+                    class="font-semibold text-sm text-gray-800 group-hover:text-[#8C6239] transition-colors duration-200 line-clamp-2 leading-tight">
+                    {{ p.nom }}
+                  </h3>
+                  <div
+                    class="mt-1 flex items-center gap-1 text-[10px] text-gray-500 uppercase tracking-wider font-medium">
+                    {{ p.categorie }}
+                  </div>
+                </div>
+                <div class="mt-3 flex items-baseline justify-between">
+                  <span class="text-sm font-bold text-[#8C6239] whitespace-nowrap">{{ p.prix.toLocaleString() }}
+                    FCFA</span>
+                </div>
+              </div>
             </div>
-           
-           <!-- Image avec icônes qui viennent de l’extérieur -->
-<div class="relative overflow-hidden aspect-square">
-  <img
-    :src="p.image"
-    :alt="p.nom"
-    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-    @error="handleImageError"
-  />
+          </div>
 
-  <!-- Overlay sombre -->
-  <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-  <!-- ICÔNES COMPLÈTEMENT EN DEHORS -->
-  <div
-    class="absolute top-1/2 -translate-y-1/2 flex flex-col gap-3
-           -right-14 group-hover:right-2
-           transition-all duration-400 ease-in-out"
-  >
-    <!-- Panier -->
-    <button
-      @click.stop="addToCart(p)"
-      class="w-9 h-9 bg-white rounded-full shadow-lg flex items-center justify-center
-             hover:bg-[#8C6239] hover:text-white transition-all duration-200 hover:scale-110"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-      </svg>
-    </button>
-
-    <!-- Voir détails -->
-    <button
-      @click.stop="navigateToDetails(p.id)"
-      class="w-9 h-9 bg-white rounded-full shadow-lg flex items-center justify-center
-             hover:bg-[#8C6239] hover:text-white tfransition-all duration-200 hover:scale-110"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-      </svg>
-    </button>
-
-    <!-- Favoris -->
-    <button
-      @click.stop="toggleFavorite(p)"
-      :class="[
-        'w-9 h-9 bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110',
-        p.isFavorite ? 'text-red-500' : 'hover:bg-[#8C6239] hover:text-white'
-      ]"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-      </svg>
-    </button>
-  </div>
-</div>
-           
-            <div class="p-2">
-              <h3 class="font-medium text-xs text-gray-800 group-hover:text-[#8C6239] transition-colors duration-200 line-clamp-2 min-h-[2rem]">
-                {{ p.nom }}
-              </h3>
-             
-              <div class="mt-1 flex items-center gap-1">
-                <span class="text-sm font-bold text-[#8C6239]">{{ p.prix.toLocaleString() }} FCFA</span>
-                <span v-if="p.ancienPrix" class="text-[10px] text-gray-400 line-through">{{ p.ancienPrix.toLocaleString() }} FCFA</span>
-              </div>
-             
-              <div class="mt-1 flex items-center gap-1 text-[10px] text-gray-500">
-                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l5 5a2 2 0 01.586 1.414V19a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+          <!-- Pagination (Toujours en bas) -->
+          <div v-if="totalPages > 1" class="mt-16 mb-8 w-full flex flex-col items-center gap-6">
+            <div class="h-px w-24 bg-gray-200"></div>
+            <div class="flex flex-wrap justify-center items-center gap-3">
+              <button @click="currentPage--" :disabled="currentPage === 1"
+                class="p-2 sm:p-3 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm active:scale-90">
+                <svg class="w-5 h-5 text-[#8C6239]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
-                {{ p.categorie }}
+              </button>
+
+              <div class="flex flex-wrap justify-center gap-2">
+                <template v-for="(page, idx) in displayedPages" :key="idx">
+                  <span v-if="page === '...'" class="w-8 h-10 flex items-center justify-center text-gray-400 font-bold">
+                    ...
+                  </span>
+                  <button v-else @click="currentPage = page"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border transition-all duration-300 font-bold text-sm flex items-center justify-center shadow-sm active:scale-90"
+                    :class="currentPage === page
+                      ? 'bg-[#8C6239] text-white border-[#8C6239] shadow-md shadow-[#8C6239]/20'
+                      : 'bg-white text-gray-600 border-gray-200 hover:border-[#8C6239] hover:text-[#8C6239]'">
+                    {{ page }}
+                  </button>
+                </template>
               </div>
+
+              <button @click="currentPage++" :disabled="currentPage === totalPages"
+                class="p-2 sm:p-3 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-sm active:scale-90">
+                <svg class="w-5 h-5 text-[#8C6239]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
 
-        <div v-else class="text-center py-16 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200 shadow-sm">
+        <div v-if="!filteredProduits.length"
+          class="text-center py-16 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200 shadow-sm">
           <svg class="w-20 h-20 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <h3 class="text-xl font-semibold text-gray-400 mb-2">Aucun produit trouvé</h3>
           <p class="text-gray-500 text-sm">Essayez de modifier vos filtres de recherche</p>
-          <button @click="resetFilters" class="mt-4 px-5 py-2 bg-[#8C6239] text-white rounded-lg hover:bg-[#5C3E29] transition-colors shadow-md text-sm">
+          <button @click="resetFilters"
+            class="mt-4 px-5 py-2 bg-[#8C6239] text-white rounded-lg hover:bg-[#5C3E29] transition-colors shadow-md text-sm">
             Réinitialiser les filtres
           </button>
         </div>
       </div>
     </div>
 
-    <Transition
-      enter-active-class="transform ease-out duration-300 transition"
+    <Transition enter-active-class="transform ease-out duration-300 transition"
       enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-      enter-to-class="translate-y-0 opacity-100 sm:translate-x-0"
-      leave-active-class="transition ease-in duration-100"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <div v-if="showToast" class="fixed bottom-4 right-4 bg-[#8C6239] text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-50">
+      enter-to-class="translate-y-0 opacity-100 sm:translate-x-0" leave-active-class="transition ease-in duration-100"
+      leave-from-class="opacity-100" leave-to-class="opacity-0">
+      <div v-if="showToast"
+        class="fixed bottom-4 right-4 bg-[#8C6239] text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-50">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
         <span class="text-sm font-medium">{{ toastMessage }}</span>
       </div>
     </Transition>
-   
-    <Transition
-      enter-active-class="transform ease-out duration-300 transition"
-      enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-      enter-to-class="translate-y-0 opacity-100 sm:translate-x-0"
-      leave-active-class="transition ease-in duration-100"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <div v-if="showFavoriteToast" class="fixed bottom-4 right-4 bg-[#8C6239] text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 z-50">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-        </svg>
-        <span class="text-sm font-medium">{{ favoriteToastMessage }}</span>
-      </div>
-    </Transition>
-   
   </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const produits = ref([
-  { id: 1, nom: 'Perruque lace front', prix: 25000, ancienPrix: 30000, categorie: 'Perruques', image: '/images/perruque.jpg', promotion: 15, isFavorite: false },
-  { id: 2, nom: 'Mèches brésiliennes', prix: 15000, categorie: 'Mèches', image: '/images/perruque.jpg', promotion: 0, isFavorite: false },
-  { id: 3, nom: 'Kit onglerie complet', prix: 8500, categorie: 'Produits d\'onglerie', image: '/images/cosmetique.jpg', promotion: 0, isFavorite: false },
-  { id: 4, nom: 'Crème hydratante', prix: 5000, categorie: 'Cosmétiques', image: '/images/creme.jpg', promotion: 10, isFavorite: false },
-  { id: 5, nom: 'Perruque bouclée', prix: 35000, categorie: 'Perruques', image: '/images/perruque.jpg', promotion: 0, isFavorite: false },
-  { id: 6, nom: 'Vernis semi-permanent', prix: 3000, categorie: 'Produits d\'onglerie', image: '/images/cosmetique.jpg', promotion: 20, isFavorite: false },
-  { id: 7, nom: 'Masque capillaire', prix: 4500, categorie: 'Cosmétiques', image: '/images/creme.jpg', promotion: 0, isFavorite: false },
-  { id: 8, nom: 'Extensions cheveux', prix: 12000, categorie: 'Mèches', image: '/images/perruque.jpg', promotion: 5, isFavorite: false }
+  { id: 1, nom: 'Perruque Lace Front Premium', prix: 45000, categorie: 'Perruques', sousCategorie: 'Lace front', image: '/images/perruque.jpg' },
+  { id: 2, nom: 'Mèches Brésiliennes 14"', prix: 18000, categorie: 'Mèches', sousCategorie: 'Brésiliennes', image: '/images/perruque.jpg' },
+  { id: 3, nom: 'Kit Onglerie Professionnel', prix: 25000, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' },
+  { id: 4, nom: 'Sérum Éclat Vitamine C', prix: 12000, categorie: 'Cosmétiques', sousCategorie: 'Soins visage', image: '/images/creme.jpg' },
+  { id: 5, nom: 'Perruque Bouclée Deep Wave', prix: 35000, categorie: 'Perruques', sousCategorie: 'Bouclées', image: '/images/perruque.jpg' },
+  { id: 6, nom: 'Vernis Semi-Permanent Nude', prix: 4500, categorie: 'Produits d\'onglerie', sousCategorie: 'Vernis', image: '/images/cosmetique.jpg' },
+  { id: 7, nom: 'Masque Hydratation Intense', prix: 8500, categorie: 'Cosmétiques', sousCategorie: 'Soins visage', image: '/images/creme.jpg' },
+  { id: 8, nom: 'Extensions Clips Naturelles', prix: 15000, categorie: 'Mèches', sousCategorie: 'Synthétiques', image: '/images/perruque.jpg' },
+  { id: 9, nom: 'Parfum Mystère de l\'Orient', prix: 48000, categorie: 'Parfums', sousCategorie: 'Hommes', image: '/images/parfum.jpg' },
+  { id: 10, nom: 'Perruque Bob Lisse HD', prix: 32000, categorie: 'Perruques', sousCategorie: 'Lisses', image: '/images/perruque.jpg' },
+  { id: 11, nom: 'Kit Faux Ongles Design', prix: 6500, categorie: 'Produits d\'onglerie', sousCategorie: 'Faux ongles', image: '/images/cosmetique.jpg' },
+  { id: 12, nom: 'Crème Corps Karité Bio', prix: 5500, categorie: 'Cosmétiques', sousCategorie: 'Soins corps', image: '/images/creme.jpg' },
+  { id: 13, nom: 'Mèches Indiennes Wave', prix: 22000, categorie: 'Mèches', sousCategorie: 'Indiennes', image: '/images/perruque.jpg' },
+  { id: 14, nom: 'Palette Maquillage Nude', prix: 14000, categorie: 'Cosmétiques', sousCategorie: 'Maquillage', image: '/images/creme.jpg' },
+  { id: 15, nom: 'Parfum Fleur de Coton', prix: 38000, categorie: 'Parfums', sousCategorie: 'Femmes', image: '/images/parfum.jpg' },
+  { id: 16, nom: 'Lampe UV-LED Portable', prix: 12500, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' },
+  { id: 17, nom: 'Perruque Lace Noire Longue', prix: 29000, categorie: 'Perruques', sousCategorie: 'Lace front', image: '/images/perruque.jpg' },
+  { id: 18, nom: 'Huile Capillaire Réparatrice', prix: 7000, categorie: 'Cosmétiques', sousCategorie: 'Soins corps', image: '/images/creme.jpg' },
+  { id: 19, nom: 'Mèches Afro Kinky Curly', prix: 16500, categorie: 'Mèches', sousCategorie: 'Synthétiques', image: '/images/perruque.jpg' },
+  { id: 20, nom: 'Vernis Top Coat Brillant', prix: 3500, categorie: 'Produits d\'onglerie', sousCategorie: 'Vernis', image: '/images/cosmetique.jpg' },
+  { id: 21, nom: 'Parfum Ambre Solaire', prix: 42000, categorie: 'Parfums', sousCategorie: 'Mixtes', image: '/images/parfum.jpg' },
+  { id: 22, nom: 'Kit Entretien Perruque', prix: 9500, categorie: 'Perruques', sousCategorie: 'Lisses', image: '/images/perruque.jpg' },
+  { id: 23, nom: 'Perruque Lace Front Blonde', prix: 48000, categorie: 'Perruques', sousCategorie: 'Lace front', image: '/images/perruque.jpg' },
+  { id: 24, nom: 'Mèches Indiennes 18"', prix: 25000, categorie: 'Mèches', sousCategorie: 'Indiennes', image: '/images/perruque.jpg' },
+  { id: 25, nom: 'Kit Onglerie Expert UV', prix: 35000, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' },
+  { id: 26, nom: 'Crème Anti-Âge Premium', prix: 15000, categorie: 'Cosmétiques', sousCategorie: 'Soins visage', image: '/images/creme.jpg' },
+  { id: 27, nom: 'Perruque Boucle Glamour', prix: 38000, categorie: 'Perruques', sousCategorie: 'Bouclées', image: '/images/perruque.jpg' },
+  { id: 28, nom: 'Vernis Bleu Nuit Profond', prix: 4000, categorie: 'Produits d\'onglerie', sousCategorie: 'Vernis', image: '/images/cosmetique.jpg' },
+  { id: 29, nom: 'Masque Argile Détox', prix: 7500, categorie: 'Cosmétiques', sousCategorie: 'Soins visage', image: '/images/creme.jpg' },
+  { id: 30, nom: 'Extensions Tissage Lisse', prix: 20000, categorie: 'Mèches', sousCategorie: 'Brésiliennes', image: '/images/perruque.jpg' },
+  { id: 31, nom: 'Parfum Boisé Intense', prix: 52000, categorie: 'Parfums', sousCategorie: 'Hommes', image: '/images/parfum.jpg' },
+  { id: 33, nom: 'Kit Oncle Gel UV Rapide', prix: 18000, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' },
+  { id: 34, nom: 'Crème Mains Réparatrice', prix: 4500, categorie: 'Cosmétiques', sousCategorie: 'Soins corps', image: '/images/creme.jpg' },
+  { id: 35, nom: 'Mèches Brésiliennes Kinky', prix: 19000, categorie: 'Mèches', sousCategorie: 'Brésiliennes', image: '/images/perruque.jpg' },
+  { id: 36, nom: 'Rouge à Lèvres Mat Velours', prix: 8500, categorie: 'Cosmétiques', sousCategorie: 'Maquillage', image: '/images/creme.jpg' },
+  { id: 38, nom: 'Lampe LED Ongles Express', prix: 15000, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' },
+  { id: 39, nom: 'Perruque Lace Front Ombré', prix: 42000, categorie: 'Perruques', sousCategorie: 'Lace front', image: '/images/perruque.jpg' },
+  { id: 41, nom: 'Huile de Coco Purifiée', prix: 6000, categorie: 'Cosmétiques', sousCategorie: 'Soins corps', image: '/images/creme.jpg' },
+  { id: 42, nom: 'Vernis Pailleté Argent', prix: 5000, categorie: 'Produits d\'onglerie', sousCategorie: 'Vernis', image: '/images/cosmetique.jpg' },
+  { id: 43, nom: 'Parfum Citron Givré', prix: 35000, categorie: 'Parfums', sousCategorie: 'Femmes', image: '/images/parfum.jpg' },
+  { id: 44, nom: 'Kit Ongles Effet Miroir', prix: 12000, categorie: 'Produits d\'onglerie', sousCategorie: 'Kits', image: '/images/cosmetique.jpg' }
 ])
+
+const currentPage = ref(1)
+const itemsPerPage = 8
 
 const search = ref('')
 const sortBy = ref('nom')
 const showToast = ref(false)
 const toastMessage = ref('')
-const showFavoriteToast = ref(false)
-const favoriteToastMessage = ref('')
+const showMobileFilters = ref(false)
+const activeProductId = ref(null)
+
+const toggleActiveProduct = (id) => {
+  if (activeProductId.value === id) {
+    activeProductId.value = null
+  } else {
+    activeProductId.value = id
+  }
+}
+
+const handleClickOutside = (event) => {
+  if (activeProductId.value && !event.target.closest('.group')) {
+    activeProductId.value = null
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 /* PLAGE PRIX */
 const priceRange = {
@@ -315,26 +366,37 @@ const priceRange = {
 /* FILTRES */
 const filters = ref({
   categories: [],
+  subCategories: [],
   minPrice: priceRange.min,
-  maxPrice: priceRange.max,
-  promoOnly: false
+  maxPrice: priceRange.max
 })
 
-const categories = [
-  'Perruques',
-  'Mèches',
-  'Cosmétiques',
-  'Produits d’onglerie'
+const categoriesTree = [
+  { name: 'Parfums', subCategories: ['Hommes', 'Femmes', 'Mixtes'] },
+  { name: 'Perruques', subCategories: ['Lace front', 'Bouclées', 'Lisses'] },
+  { name: 'Mèches', subCategories: ['Brésiliennes', 'Indiennes', 'Synthétiques'] },
+  { name: 'Cosmétiques', subCategories: ['Soins visage', 'Maquillage', 'Soins corps'] },
+  { name: 'Produits d\'onglerie', subCategories: ['Vernis', 'Faux ongles', 'Kits'] }
 ]
 
 /* RESET */
 const resetFilters = () => {
   search.value = ''
+  currentPage.value = 1
   filters.value = {
     categories: [],
+    subCategories: [],
     minPrice: priceRange.min,
-    maxPrice: priceRange.max,
-    promoOnly: false
+    maxPrice: priceRange.max
+  }
+}
+const handleCategoryChange = (categoryName) => {
+  currentPage.value = 1 // Réinitialiser à la page 1 lors d'un changement de filtre
+  if (!filters.value.categories.includes(categoryName)) {
+    const cat = categoriesTree.find(c => c.name === categoryName)
+    if (cat) {
+      filters.value.subCategories = filters.value.subCategories.filter(sub => !cat.subCategories.includes(sub))
+    }
   }
 }
 
@@ -343,10 +405,10 @@ const filteredProduits = computed(() => {
   return produits.value.filter(p => {
     const searchMatch = p.nom.toLowerCase().includes(search.value.toLowerCase())
     const categoryMatch = !filters.value.categories.length || filters.value.categories.includes(p.categorie)
+    const subCategoryMatch = !filters.value.subCategories.length || filters.value.subCategories.includes(p.sousCategorie)
     const minMatch = p.prix >= filters.value.minPrice
     const maxMatch = p.prix <= filters.value.maxPrice
-    const promoMatch = !filters.value.promoOnly || p.promotion > 0
-    return searchMatch && categoryMatch && minMatch && maxMatch && promoMatch
+    return searchMatch && categoryMatch && subCategoryMatch && minMatch && maxMatch
   })
 })
 
@@ -363,6 +425,43 @@ const sortedProduits = computed(() => {
   }
 })
 
+const totalPages = computed(() => Math.ceil(sortedProduits.value.length / itemsPerPage))
+
+const paginatedProduits = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  return sortedProduits.value.slice(start, end)
+})
+
+const displayedPages = computed(() => {
+  const current = currentPage.value
+  const total = totalPages.value
+  const delta = 2 // Nombre de pages autour de la page courante
+  const range = []
+  const rangeWithDots = []
+  let l
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+      range.push(i)
+    }
+  }
+
+  for (let i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1)
+      } else if (i - l !== 1) {
+        rangeWithDots.push('...')
+      }
+    }
+    rangeWithDots.push(i)
+    l = i
+  }
+
+  return rangeWithDots
+})
+
 /* GESTIONNAIRES */
 const handleImageError = (e) => {
   e.target.src = '/images/placeholder.jpg'
@@ -371,34 +470,16 @@ const handleImageError = (e) => {
 const addToCart = (produit) => {
   toastMessage.value = `${produit.nom} ajouté au panier`
   showToast.value = true
-  
+
   setTimeout(() => {
     showToast.value = false
   }, 3000)
-  
+
   console.log('Produit ajouté au panier:', produit)
 }
 
 const navigateToDetails = (productId) => {
   router.push(`/boutique/${productId}`)
-}
-
-const toggleFavorite = (produit) => {
-  produit.isFavorite = !produit.isFavorite
-  
-  if (produit.isFavorite) {
-    favoriteToastMessage.value = `${produit.nom} ajouté aux favoris`
-  } else {
-    favoriteToastMessage.value = `${produit.nom} retiré des favoris`
-  }
-  
-  showFavoriteToast.value = true
-  
-  setTimeout(() => {
-    showFavoriteToast.value = false
-  }, 3000)
-  
-  console.log('Favori togglé:', produit.nom, produit.isFavorite)
 }
 </script>
 
@@ -423,7 +504,7 @@ const toggleFavorite = (produit) => {
   border: 2px solid #8C6239;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
   margin-top: -7px;
 }
@@ -444,6 +525,7 @@ const toggleFavorite = (produit) => {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
