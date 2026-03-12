@@ -4,14 +4,11 @@
   <div class="min-h-screen bg-[#F3F3F3]">
     <!-- TITRE -->
     <div class="max-w-5xl mx-auto px-5 py-8">
-      <h1 class="text-2xl font-serif text-[#343434]">
-        Mon panier
-      </h1>
+      <h1 class="text-2xl font-serif text-[#343434]">Mon panier</h1>
     </div>
 
     <div class="max-w-5xl mx-auto px-5 pb-16">
       <div class="bg-white rounded-lg shadow-sm p-5">
-
         <!-- PANIER VIDE -->
         <div
           v-if="cart.length === 0"
@@ -22,7 +19,6 @@
 
         <!-- PANIER REMPLI -->
         <template v-else>
-
           <!-- ================= DESKTOP TABLE ================= -->
           <div class="hidden md:block overflow-x-auto">
             <table class="w-full border-collapse">
@@ -49,7 +45,9 @@
                         :src="item.image"
                         class="w-14 h-14 rounded-md object-cover border"
                       />
-                      <p class="text-sm text-[#343434] leading-snug max-w-[260px]">
+                      <p
+                        class="text-sm text-[#343434] leading-snug max-w-[260px]"
+                      >
                         {{ item.name }}
                       </p>
                     </div>
@@ -172,15 +170,12 @@
 
               <NuxtLink
                 to="/commande"
-                class="cursor-pointer mt-6 block w-full text-center
-                       bg-[#9F6E45] text-white py-3 rounded-full
-                       text-sm hover:bg-black transition"
+                class="cursor-pointer mt-6 block w-full text-center bg-[#9F6E45] text-white py-3 rounded-full text-sm hover:bg-black transition"
               >
                 Voir la commande
               </NuxtLink>
             </div>
           </div>
-
         </template>
       </div>
     </div>
@@ -188,24 +183,21 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useCartStore } from '~/stores/cart'
-import Breadcrumb from '~/components/Breadcrumb.vue'
+import { computed } from "vue";
+import { useCartStore } from "~~/stores/cart";
+import Breadcrumb from "~/components/Breadcrumb.vue";
 
-const breadcrumbItems = [
-  { label: 'Accueil', href: '/' },
-  { label: 'Panier' }
-]
+const breadcrumbItems = [{ label: "Accueil", href: "/" }, { label: "Panier" }];
 
-const cartStore = useCartStore()
+const cartStore = useCartStore();
 
-const cart = computed(() => cartStore.items)
-const subtotal = computed(() => cartStore.subtotal)
-const total = computed(() => subtotal.value)
+const cart = computed(() => cartStore.items);
+const subtotal = computed(() => cartStore.subtotal);
+const total = computed(() => subtotal.value);
 
-const increase = (item) => cartStore.increase(item)
-const decrease = (item) => cartStore.decrease(item)
-const removeItem = (id) => cartStore.remove(id)
+const increase = (item) => cartStore.increase(item);
+const decrease = (item) => cartStore.decrease(item);
+const removeItem = (id) => cartStore.remove(id);
 
-const format = (v) => v.toLocaleString('fr-FR') + ' CFA'
+const format = (v) => v.toLocaleString("fr-FR") + " CFA";
 </script>

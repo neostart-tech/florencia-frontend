@@ -36,6 +36,19 @@ export const useCartStore = defineStore('cart', {
         item.quantity--
       }
     },
+    add(product) {
+      const existing = this.items.find(i => i.id === product.id)
+      if (existing) {
+        existing.quantity++
+      } else {
+        this.items.push({
+          ...product,
+          quantity: 1,
+          image: product.image || '/images/placeholder.jpg',
+          name: product.nom || product.name // Handle both 'nom' and 'name' properties
+        })
+      }
+    },
     remove(id) {
       this.items = this.items.filter(item => item.id !== id)
     },
