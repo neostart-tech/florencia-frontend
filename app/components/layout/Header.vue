@@ -32,6 +32,10 @@
             Boutique
           </NuxtLink>
 
+          <NuxtLink to="/service" class="nav-link" :class="active('/service', true)">
+            Services
+          </NuxtLink>
+
           <NuxtLink to="/blog" class="nav-link" :class="active('/blog')">
             Blog
           </NuxtLink>

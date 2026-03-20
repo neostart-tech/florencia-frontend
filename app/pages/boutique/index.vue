@@ -1,7 +1,7 @@
 <template>
   <div class="relative min-h-screen bg-gradient-to-br from-[#262B14] via-[#2A2F18] to-[#1f2310] overflow-hidden">
     
-    <!-- Effet de fond animé - Univers élégant -->
+    <!-- Effet de fond animé -->
     <div class="absolute inset-0">
       <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#E8D4AD]/5 rounded-full filter blur-[120px] animate-float-slow"></div>
       <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#E8D4AD]/5 rounded-full filter blur-[120px] animate-float-slow animation-delay-2000"></div>
@@ -20,150 +20,106 @@
       }"></div>
     </div>
     
-    <!-- Hero Section avec effet amélioré -->
-    <section class="relative h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <!-- HERO SECTION - Page Indicator -->
+    <section class="relative py-12 lg:py-16 overflow-hidden">
       <div class="absolute inset-0">
-        <img src="/images/cosmetique.jpg" alt="Boutique" class="w-full h-full object-cover scale-110 animate-slowZoom">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#262B14] via-[#262B14]/70 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#E8D4AD]/5 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#262B14] via-transparent to-[#262B14]"></div>
       </div>
-      <div class="relative z-10 text-center px-4 animate-fadeInUp">
-        <div class="inline-block mb-4">
-          <div class="flex items-center gap-2 justify-center">
-            <div class="w-8 h-px bg-gradient-to-r from-transparent to-[#E8D4AD]/50"></div>
-            <div class="w-1 h-1 rounded-full bg-[#E8D4AD] animate-pulse"></div>
-            <div class="w-8 h-px bg-gradient-to-l from-transparent to-[#E8D4AD]/50"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="text-center animate-fadeInUp">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <NuxtLink to="/" class="text-[#E8D4AD]/50 text-sm hover:text-[#E8D4AD] transition-colors">Accueil</NuxtLink>
+            <svg class="w-4 h-4 text-[#E8D4AD]/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" /></svg>
+            <span class="text-[#E8D4AD] text-sm">Boutique</span>
           </div>
-        </div>
-        <h1 class="text-5xl md:text-7xl font-light tracking-wide text-[#E8D4AD] mb-4" style="font-family: 'Playfair Display', serif;">
-          L'Art de la Beauté
-        </h1>
-        <div class="w-16 h-px bg-gradient-to-r from-transparent via-[#E8D4AD] to-transparent mx-auto"></div>
-        <p class="text-[#E8D4AD]/60 mt-5 max-w-xl mx-auto text-sm tracking-wide">Une collection pensée pour révéler votre éclat naturel</p>
-        <div class="mt-6 flex justify-center gap-3">
-          <button @click="viewCategory('nouveautes')" class="px-6 py-2 border border-[#E8D4AD]/30 rounded-full text-[#E8D4AD] text-sm hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all">Nouveautés</button>
-          <button @click="viewCategory('meilleures')" class="px-6 py-2 bg-[#E8D4AD]/10 border border-[#E8D4AD]/20 rounded-full text-[#E8D4AD] text-sm hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all">Meilleures ventes</button>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-light text-[#E8D4AD] mb-3" style="font-family: 'Playfair Display', serif;">
+            Notre Boutique
+          </h1>
+          <div class="w-16 h-px bg-gradient-to-r from-transparent via-[#E8D4AD] to-transparent mx-auto"></div>
+          <p class="text-[#E8D4AD]/50 text-sm mt-4 max-w-md mx-auto">Découvrez notre collection exclusive de produits d'exception</p>
         </div>
       </div>
     </section>
     
-    <!-- BANDEAUX DE MISE EN AVANT - Design amélioré avec boutons -->
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-4 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        
-        <!-- Carte Meilleure Vente du Mois -->
-        <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-r from-[#343A20]/90 to-[#2A2F18]/90 backdrop-blur-sm border border-[#E8D4AD]/15 hover:border-[#E8D4AD]/40 transition-all duration-500 hover:-translate-y-1 shadow-lg hover:shadow-2xl">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-[#E8D4AD]/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-          <div class="flex flex-col sm:flex-row items-center gap-6 p-6">
-            <div class="relative w-28 h-28 rounded-xl overflow-hidden shadow-xl">
-              <img :src="meilleurVente.image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#262B14]/50 to-transparent"></div>
-            </div>
-            <div class="flex-1 text-center sm:text-left">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8D4AD]/15 text-[#E8D4AD] text-xs mb-3 backdrop-blur-sm">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                Meilleure Vente
-              </div>
-              <h3 class="text-[#E8D4AD] font-light text-lg group-hover:text-[#E8D4AD]/90">{{ meilleurVente.name }}</h3>
-              <p class="text-[#E8D4AD]/50 text-sm mt-1">{{ meilleurVente.price.toLocaleString() }} FCFA</p>
-              <div class="flex gap-2 mt-3">
-                <button @click="addToCart(meilleurVente)" class="px-4 py-1.5 bg-[#E8D4AD] text-[#262B14] rounded-full text-xs hover:bg-[#E8D4AD]/90 transition-all flex items-center gap-1">
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  Ajouter
-                </button>
-                <button @click="viewProduct(meilleurVente.id)" class="text-sm text-[#E8D4AD]/60 hover:text-[#E8D4AD] transition-colors inline-flex items-center gap-1 group/btn">
-                  Découvrir <svg class="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Carte Article du Jour -->
-        <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-r from-[#343A20]/90 to-[#2A2F18]/90 backdrop-blur-sm border border-[#E8D4AD]/15 hover:border-[#E8D4AD]/40 transition-all duration-500 hover:-translate-y-1 shadow-lg hover:shadow-2xl">
-          <div class="absolute bottom-0 left-0 w-40 h-40 bg-[#E8D4AD]/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-          <div class="flex flex-col sm:flex-row items-center gap-6 p-6">
-            <div class="relative w-28 h-28 rounded-xl overflow-hidden shadow-xl order-2 sm:order-2">
-              <img :src="articleDuJour.image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#262B14]/50 to-transparent"></div>
-            </div>
-            <div class="flex-1 text-center sm:text-right order-1 sm:order-1">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8D4AD]/15 text-[#E8D4AD] text-xs mb-3 backdrop-blur-sm">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-                Coup de Cœur
-              </div>
-              <h3 class="text-[#E8D4AD] font-light text-lg group-hover:text-[#E8D4AD]/90">{{ articleDuJour.name }}</h3>
-              <p class="text-[#E8D4AD]/50 text-sm mt-1">{{ articleDuJour.price.toLocaleString() }} FCFA</p>
-              <div class="flex gap-2 mt-3 justify-end">
-                <button @click="addToCart(articleDuJour)" class="px-4 py-1.5 bg-[#E8D4AD] text-[#262B14] rounded-full text-xs hover:bg-[#E8D4AD]/90 transition-all flex items-center gap-1">
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  Ajouter
-                </button>
-                <button @click="viewProduct(articleDuJour.id)" class="text-sm text-[#E8D4AD]/60 hover:text-[#E8D4AD] transition-colors inline-flex items-center gap-1 group/btn">
-                  Découvrir <svg class="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      
-      <!-- Top Ventes supplémentaires avec boutons -->
-      <div class="mb-8">
-        <div class="flex items-center justify-between mb-4">
+    <!-- ZONE LES PLUS VENDUS -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-4 pb-4 relative z-10">
+      <div class="mb-12">
+        <div class="flex flex-col items-center mb-8">
           <div class="flex items-center gap-3">
-            <div class="w-8 h-px bg-[#E8D4AD]/30"></div>
-            <h3 class="text-[#E8D4AD] font-light text-sm uppercase tracking-wider flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-              Les Plus Vendus
-            </h3>
-            <div class="w-8 h-px bg-[#E8D4AD]/30"></div>
+            <div class="w-12 h-px bg-gradient-to-r from-transparent to-[#E8D4AD]/30"></div>
+            <div class="relative">
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-[#E8D4AD]/30 to-transparent"></div>
+              <svg class="w-6 h-6 text-[#E8D4AD]/40 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+              <h3 class="text-[#E8D4AD] font-light text-xl tracking-wide mt-2" style="font-family: 'Playfair Display', serif;">Les Plus Vendus</h3>
+            </div>
+            <div class="w-12 h-px bg-gradient-to-l from-transparent to-[#E8D4AD]/30"></div>
           </div>
-          <div class="flex gap-1">
-            <button @click="scrollTopVentes(-1)" class="w-7 h-7 rounded-full border border-[#E8D4AD]/20 flex items-center justify-center hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all hover:scale-110">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button @click="scrollTopVentes(1)" class="w-7 h-7 rounded-full border border-[#E8D4AD]/20 flex items-center justify-center hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all hover:scale-110">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </button>
-          </div>
+          <p class="text-[#E8D4AD]/40 text-xs mt-2">Ce que nos clientes préfèrent</p>
         </div>
-        <div class="overflow-hidden rounded-xl">
-          <div class="flex gap-4 transition-transform duration-500 ease-out" :style="{ transform: `translateX(-${topVentesScroll * 100}%)` }">
-            <div v-for="item in topVentes" :key="item.id" class="flex-shrink-0 w-[calc(33.333%-11px)] sm:w-[calc(25%-12px)] lg:w-[calc(20%-13px)]">
-              <div class="bg-gradient-to-br from-[#343A20]/50 to-[#2A2F18]/50 backdrop-blur-sm rounded-xl p-3 border border-[#E8D4AD]/10 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group hover:-translate-y-1 hover:shadow-xl" @click="viewProduct(item.id)">
-                <div class="relative aspect-square rounded-lg overflow-hidden mb-2">
-                  <img :src="item.image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                  <div class="absolute top-2 left-2 w-5 h-5 rounded-full bg-[#E8D4AD]/20 backdrop-blur-sm flex items-center justify-center">
-                    <span class="text-[9px] text-[#E8D4AD]">#{{ topVentes.indexOf(item) + 1 }}</span>
+        
+        <div class="relative">
+          <button @click="scrollTopVentes(-1)" class="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-[#262B14]/80 backdrop-blur-sm border border-[#E8D4AD]/20 flex items-center justify-center hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all opacity-0 group-hover:opacity-100">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button @click="scrollTopVentes(1)" class="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-[#262B14]/80 backdrop-blur-sm border border-[#E8D4AD]/20 flex items-center justify-center hover:bg-[#E8D4AD] hover:text-[#262B14] transition-all opacity-0 group-hover:opacity-100">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </button>
+          
+          <div class="overflow-hidden rounded-2xl">
+            <div class="flex gap-5 transition-transform duration-500 ease-out" :style="{ transform: `translateX(-${topVentesScroll * 100}%)` }">
+              <div v-for="(item, idx) in topVentes" :key="item.id" class="flex-shrink-0 w-[calc(33.333%-13px)] sm:w-[calc(25%-15px)] lg:w-[calc(20%-16px)] group">
+                <div class="relative bg-gradient-to-b from-[#343A20]/40 to-[#2A2F18]/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-[#E8D4AD]/10 hover:border-[#E8D4AD]/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-pointer" @click="viewProduct(item.id)">
+                  <div class="absolute top-3 left-3 z-10">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#E8D4AD]/20 to-[#E8D4AD]/5 backdrop-blur-sm flex items-center justify-center border border-[#E8D4AD]/20">
+                      <span class="text-[11px] font-light text-[#E8D4AD]">#{{ idx + 1 }}</span>
+                    </div>
                   </div>
-                  <!-- Bouton Ajouter au panier au survol -->
-                  <button @click.stop="addToCart(item)" class="absolute bottom-2 right-2 w-7 h-7 rounded-full bg-[#E8D4AD] text-[#262B14] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:scale-110">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  </button>
+                  <div class="relative aspect-square overflow-hidden">
+                    <img :src="item.image" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+                    <button @click.stop="addToCart(item)" class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-[#E8D4AD] text-[#262B14] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
+                    </button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#262B14]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                  <div class="p-4">
+                    <div class="flex items-center gap-1 mb-2">
+                      <svg v-for="s in 5" :key="s" class="w-3 h-3" :class="s <= 4 ? 'text-[#E8D4AD]' : 'text-[#E8D4AD]/30'" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <h4 class="text-[#E8D4AD] text-sm font-light line-clamp-1 group-hover:text-[#E8D4AD]/90">{{ item.name }}</h4>
+                    <div class="mt-2 flex items-baseline gap-2">
+                      <span class="text-[#E8D4AD] text-base font-light">{{ item.price.toLocaleString() }} FCFA</span>
+                      <span v-if="item.oldPrice" class="text-[#E8D4AD]/30 text-xs line-through">{{ item.oldPrice.toLocaleString() }} FCFA</span>
+                    </div>
+                    <button @click.stop="addToCart(item)" class="mt-3 w-full py-1.5 bg-[#E8D4AD]/10 hover:bg-[#E8D4AD] text-[#E8D4AD] hover:text-[#262B14] rounded-full text-xs transition-all flex items-center justify-center gap-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
+                      Ajouter au panier
+                    </button>
+                  </div>
                 </div>
-                <h4 class="text-[#E8D4AD] text-xs font-light line-clamp-1 group-hover:text-[#E8D4AD]/80">{{ item.name }}</h4>
-                <p class="text-[#E8D4AD]/50 text-[10px] mt-1">{{ item.price.toLocaleString() }} FCFA</p>
-                <button @click.stop="addToCart(item)" class="mt-2 w-full py-1.5 bg-[#E8D4AD]/10 hover:bg-[#E8D4AD] text-[#E8D4AD] hover:text-[#262B14] rounded-full text-[10px] transition-all flex items-center justify-center gap-1">
-                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  Ajouter
-                </button>
               </div>
             </div>
+          </div>
+          
+          <div class="flex justify-center gap-2 mt-6">
+            <button v-for="i in totalTopVentesPages" :key="i" @click="topVentesScroll = i - 1"
+              class="transition-all duration-500"
+              :class="topVentesScroll === i - 1 ? 'w-5 h-1.5 bg-[#E8D4AD]' : 'w-1.5 h-1.5 bg-[#E8D4AD]/30 rounded-full hover:bg-[#E8D4AD]/50'"></button>
           </div>
         </div>
       </div>
     </div>
     
+    <!-- SECTION PRINCIPALE -->
     <div class="max-w-7xl mx-auto px-6 lg:px-12 pb-12 relative z-10">
       <div class="flex flex-col lg:flex-row gap-10">
         
-        <!-- SIDEBAR GAUCHE -->
+        <!-- SIDEBAR GAUCHE AVEC CHECKBOX PERSONNALISÉES -->
         <aside class="lg:w-80 flex-shrink-0">
           <div class="sticky top-24 space-y-6">
             
-            <!-- Filtres -->
+            <!-- Filtres principaux -->
             <div class="relative group">
               <div class="absolute -inset-0.5 bg-gradient-to-r from-[#E8D4AD]/25 to-[#E8D4AD]/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
               <div class="relative bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-5">
@@ -177,21 +133,47 @@
                     Réinitialiser
                   </button>
                 </div>
+                
+                <!-- Recherche -->
                 <div class="relative mb-5">
                   <input v-model="search" type="text" placeholder="Rechercher..."
                     class="w-full bg-[#262B14]/60 border border-[#E8D4AD]/20 rounded-xl px-4 py-2.5 pl-9 text-[#E8D4AD] text-sm placeholder:text-[#E8D4AD]/30 focus:border-[#E8D4AD] focus:ring-1 focus:ring-[#E8D4AD]/20 outline-none transition-all">
                   <svg class="w-4 h-4 text-[#E8D4AD]/40 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
-                <div class="space-y-2 mb-5">
-                  <label v-for="cat in categories" :key="cat.id" class="flex items-center gap-3 cursor-pointer group/label p-1.5 rounded-lg hover:bg-[#E8D4AD]/5 transition-all">
-                    <div class="relative">
-                      <input type="checkbox" :value="cat.id" v-model="selectedCategories" class="peer appearance-none w-4 h-4 border border-[#E8D4AD]/30 rounded bg-transparent checked:bg-[#E8D4AD] checked:border-[#E8D4AD] transition-all cursor-pointer">
-                      <svg class="absolute top-0.5 left-0.5 w-3 h-3 text-[#262B14] pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                    </div>
-                    <span class="text-sm text-[#E8D4AD]/70 group-hover/label:text-[#E8D4AD] transition-colors">{{ cat.name }}</span>
-                    <span class="text-[10px] text-[#E8D4AD]/30 ml-auto">{{ getCategoryCount(cat.id) }}</span>
-                  </label>
+                
+                <!-- Catégories avec checkboxes personnalisées élégantes -->
+                <div class="mb-5">
+                  <h4 class="text-[#E8D4AD]/60 text-xs uppercase tracking-wider mb-3">Catégories</h4>
+                  <div class="space-y-2">
+                    <label v-for="cat in categories" :key="cat.id" class="flex items-center gap-3 cursor-pointer group/label p-1.5 rounded-lg transition-all">
+                      <!-- Custom Checkbox Élégant -->
+                      <div class="relative">
+                        <input type="checkbox" :value="cat.id" v-model="selectedCategories" class="peer absolute opacity-0 w-4 h-4 cursor-pointer">
+                        <div class="w-4 h-4 rounded border border-[#E8D4AD]/40 bg-transparent peer-checked:bg-[#E8D4AD] peer-checked:border-[#E8D4AD] transition-all duration-300 flex items-center justify-center">
+                          <svg class="w-3 h-3 text-[#262B14] opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <span class="text-sm text-[#E8D4AD]/70 group-hover/label:text-[#E8D4AD] transition-colors">{{ cat.name }}</span>
+                      <span class="text-[10px] text-[#E8D4AD]/30 ml-auto">{{ getCategoryCount(cat.id) }}</span>
+                    </label>
+                  </div>
                 </div>
+                
+                <!-- Note minimale -->
+                <div class="mb-5">
+                  <h4 class="text-[#E8D4AD]/60 text-xs uppercase tracking-wider mb-3">Note minimale</h4>
+                  <div class="flex gap-2">
+                    <button v-for="rating in [1,2,3,4,5]" :key="rating" @click="minRating = rating"
+                      class="flex-1 py-1.5 rounded-lg text-xs transition-all"
+                      :class="minRating === rating ? 'bg-[#E8D4AD] text-[#262B14]' : 'bg-[#262B14]/50 text-[#E8D4AD]/60 hover:bg-[#E8D4AD]/20'">
+                      {{ rating }}★
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Prix -->
                 <div>
                   <div class="flex justify-between text-xs text-[#E8D4AD]/50 mb-3">
                     <span class="bg-[#262B14]/30 px-2 py-0.5 rounded-full">{{ minPrice.toLocaleString() }} FCFA</span>
@@ -207,106 +189,92 @@
               </div>
             </div>
             
-            <!-- CARTES VERTICALES À DROITE DE LA SIDEBAR - Alignées les unes sous les autres -->
-            <div class="space-y-4">
-              
-              <!-- Carte 1: Nouveautés -->
-              <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group" @click="viewCategory('nouveautes')">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
-                    <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="text-[#E8D4AD] text-sm font-light">Nouveautés</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">{{ nouveautes.length }} nouveaux produits</p>
-                  </div>
-                  <svg class="w-4 h-4 text-[#E8D4AD]/40 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-              </div>
-              
-              <!-- Carte 2: Meilleures Ventes -->
-              <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group" @click="viewCategory('meilleures')">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
-                    <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="text-[#E8D4AD] text-sm font-light">Meilleures Ventes</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">Les préférées de nos clientes</p>
-                  </div>
-                  <svg class="w-4 h-4 text-[#E8D4AD]/40 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-              </div>
-              
-              <!-- Carte 3: Offres Flash -->
-              <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group" @click="viewCategory('promos')">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
-                    <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="text-[#E8D4AD] text-sm font-light">Offres Flash</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">-20% sur une sélection</p>
-                  </div>
-                  <svg class="w-4 h-4 text-[#E8D4AD]/40 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </div>
-              </div>
-              
-              <!-- Carte 4: Livraison Express -->
-              <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
-                    <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="text-[#E8D4AD] text-sm font-light">Livraison Express</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">Sous 24h à Lomé</p>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Carte 5: Paiement Sécurisé -->
-              <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
-                    <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="text-[#E8D4AD] text-sm font-light">Paiement Sécurisé</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">Mobile Money & Carte</p>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-            
-            <!-- Nouveautés Sidebar -->
+            <!-- Filtre Promotions avec checkboxes personnalisées -->
             <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-5">
               <h3 class="text-[#E8D4AD] font-light text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Nouveautés
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Promotions
               </h3>
               <div class="space-y-3">
-                <div v-for="item in nouveautes" :key="item.id" class="flex gap-3 items-center cursor-pointer group/item hover:bg-[#E8D4AD]/5 p-2 rounded-lg transition-all" @click="viewProduct(item.id)">
-                  <div class="w-12 h-12 rounded-lg overflow-hidden bg-[#262B14]">
-                    <img :src="item.image" class="w-full h-full object-cover transition-transform group-hover/item:scale-110">
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <div class="relative">
+                    <input type="checkbox" v-model="showOnlyPromos" class="peer absolute opacity-0 w-4 h-4 cursor-pointer">
+                    <div class="w-4 h-4 rounded border border-[#E8D4AD]/40 bg-transparent peer-checked:bg-[#E8D4AD] peer-checked:border-[#E8D4AD] transition-all duration-300 flex items-center justify-center">
+                      <svg class="w-3 h-3 text-[#262B14] opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                   </div>
-                  <div>
-                    <h4 class="text-[#E8D4AD] text-xs font-light group-hover/item:text-[#E8D4AD]">{{ item.name }}</h4>
-                    <p class="text-[#E8D4AD]/40 text-[10px]">{{ item.price.toLocaleString() }} FCFA</p>
+                  <span class="text-sm text-[#E8D4AD]/70 group-hover:text-[#E8D4AD] transition-colors">Voir uniquement les produits en promo</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <div class="relative">
+                    <input type="checkbox" v-model="showOnlyNew" class="peer absolute opacity-0 w-4 h-4 cursor-pointer">
+                    <div class="w-4 h-4 rounded border border-[#E8D4AD]/40 bg-transparent peer-checked:bg-[#E8D4AD] peer-checked:border-[#E8D4AD] transition-all duration-300 flex items-center justify-center">
+                      <svg class="w-3 h-3 text-[#262B14] opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                   </div>
-                  <button @click.stop="addToCart(item)" class="ml-auto w-6 h-6 rounded-full bg-[#E8D4AD]/20 hover:bg-[#E8D4AD] text-[#E8D4AD] hover:text-[#262B14] flex items-center justify-center transition-all">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h11L17 13" /></svg>
-                  </button>
-                </div>
+                  <span class="text-sm text-[#E8D4AD]/70 group-hover:text-[#E8D4AD] transition-colors">Nouveautés</span>
+                </label>
               </div>
             </div>
+            
+            <!-- Filtre Marques avec checkboxes personnalisées -->
+            <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-5">
+              <h3 class="text-[#E8D4AD] font-light text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                Marques
+              </h3>
+              <div class="space-y-2">
+                <label v-for="brand in brands" :key="brand.id" class="flex items-center gap-3 cursor-pointer group">
+                  <div class="relative">
+                    <input type="checkbox" :value="brand.id" v-model="selectedBrands" class="peer absolute opacity-0 w-4 h-4 cursor-pointer">
+                    <div class="w-4 h-4 rounded border border-[#E8D4AD]/40 bg-transparent peer-checked:bg-[#E8D4AD] peer-checked:border-[#E8D4AD] transition-all duration-300 flex items-center justify-center">
+                      <svg class="w-3 h-3 text-[#262B14] opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <span class="text-sm text-[#E8D4AD]/70 group-hover:text-[#E8D4AD] transition-colors">{{ brand.name }}</span>
+                </label>
+              </div>
+            </div>
+            
+            <!-- Carte Nouveautés -->
+            <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group" @click="viewCategory('nouveautes')">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
+                  <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-[#E8D4AD] text-sm font-light">Nouveautés</h4>
+                  <p class="text-[#E8D4AD]/40 text-[10px]">{{ nouveautes.length }} nouveaux produits</p>
+                </div>
+                <svg class="w-4 h-4 text-[#E8D4AD]/40 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </div>
+            
+            <!-- Carte Meilleures Ventes -->
+            <div class="bg-gradient-to-br from-[#343A20]/70 to-[#2A2F18]/70 backdrop-blur-md rounded-2xl border border-[#E8D4AD]/15 p-4 hover:border-[#E8D4AD]/30 transition-all cursor-pointer group" @click="viewCategory('meilleures')">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#E8D4AD]/10 flex items-center justify-center group-hover:bg-[#E8D4AD]/20 transition-all">
+                  <svg class="w-5 h-5 text-[#E8D4AD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-[#E8D4AD] text-sm font-light">Meilleures Ventes</h4>
+                  <p class="text-[#E8D4AD]/40 text-[10px]">Les préférées de nos clientes</p>
+                </div>
+                <svg class="w-4 h-4 text-[#E8D4AD]/40 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </div>
+            
           </div>
         </aside>
         
-        <!-- PARTIE PRINCIPALE -->
+        <!-- PARTIE PRINCIPALE (identique) -->
         <div class="flex-1">
-          
           <!-- Tri -->
           <div class="flex justify-between items-center mb-6 pb-3 border-b border-[#E8D4AD]/10">
             <p class="text-[#E8D4AD]/40 text-sm flex items-center gap-2">
@@ -319,11 +287,12 @@
                 <option value="nom" class="bg-[#262B14]">Nom (A-Z)</option>
                 <option value="prix" class="bg-[#262B14]">Prix croissant</option>
                 <option value="prix-desc" class="bg-[#262B14]">Prix décroissant</option>
+                <option value="note" class="bg-[#262B14]">Meilleures notes</option>
               </select>
             </div>
           </div>
           
-          <!-- Message quand aucun résultat -->
+          <!-- Message aucun résultat -->
           <div v-if="filteredProducts.length === 0" class="text-center py-20 animate-fadeInUp">
             <div class="relative inline-block">
               <div class="w-28 h-28 mx-auto mb-6 relative">
@@ -351,7 +320,7 @@
                  class="group bg-gradient-to-br from-[#343A20]/60 to-[#2A2F18]/60 backdrop-blur-sm rounded-xl overflow-hidden border border-[#E8D4AD]/10 hover:border-[#E8D4AD]/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
               <div class="relative aspect-square overflow-hidden">
                 <img :src="product.image" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
-                <div class="absolute top-3 left-3">
+                <div class="absolute top-3 left-3 flex gap-1">
                   <span v-if="product.isNew" class="bg-[#E8D4AD]/90 text-[#262B14] text-[9px] px-2 py-0.5 rounded-full shadow-lg">Nouveau</span>
                   <span v-else-if="product.isPromo" class="bg-[#E8D4AD]/90 text-[#262B14] text-[9px] px-2 py-0.5 rounded-full shadow-lg">-{{ product.discount }}%</span>
                 </div>
@@ -367,7 +336,12 @@
                 </div>
               </div>
               <div class="p-3">
-                <span class="text-[#E8D4AD]/40 text-[9px] uppercase tracking-wider">{{ product.categoryName }}</span>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[#E8D4AD]/40 text-[9px] uppercase tracking-wider">{{ product.categoryName }}</span>
+                  <div class="flex gap-0.5">
+                    <svg v-for="s in 5" :key="s" class="w-2.5 h-2.5" :class="s <= (product.rating || 4) ? 'text-[#E8D4AD]' : 'text-[#E8D4AD]/30'" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                  </div>
+                </div>
                 <h3 class="text-[#E8D4AD] text-sm font-light mt-1 line-clamp-1 group-hover:text-[#E8D4AD]/80">{{ product.name }}</h3>
                 <div class="mt-2 flex items-center justify-between">
                   <div>
@@ -396,6 +370,8 @@
       </div>
     </div>
     
+    
+    
     <!-- Toast -->
     <Transition name="toast">
       <div v-if="showToast" class="fixed bottom-6 right-6 bg-[#E8D4AD] text-[#262B14] px-5 py-3 rounded-full text-sm shadow-2xl flex items-center gap-2 z-50 backdrop-blur-sm border border-[#262B14]/10">
@@ -418,8 +394,12 @@ const sortBy = ref('nom')
 const currentPage = ref(1)
 const itemsPerPage = 9
 const selectedCategories = ref([])
+const selectedBrands = ref([])
 const minPrice = ref(0)
 const maxPrice = ref(100000)
+const minRating = ref(0)
+const showOnlyPromos = ref(false)
+const showOnlyNew = ref(false)
 const topVentesScroll = ref(0)
 
 const categories = [
@@ -430,16 +410,22 @@ const categories = [
   { id: 'parfums', name: 'Parfums' }
 ]
 
+const brands = [
+  { id: 'florencia', name: 'Florencia' },
+  { id: 'premium', name: 'Premium Beauty' },
+  { id: 'naturel', name: 'Naturel Essence' }
+]
+
 const products = ref([
-  { id: 1, name: 'Perruque Lace Front Premium', price: 45000, oldPrice: 55000, category: 'perruques', categoryName: 'Perruques', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 18, sales: 89 },
-  { id: 2, name: 'Mèches Brésiliennes 14"', price: 18000, oldPrice: null, category: 'meches', categoryName: 'Mèches', image: '/images/perruque.jpg', isNew: true, isPromo: false, sales: 56 },
-  { id: 3, name: 'Kit Onglerie Professionnel', price: 25000, oldPrice: 32000, category: 'onglerie', categoryName: 'Onglerie', image: '/images/cosmetique.jpg', isNew: false, isPromo: true, discount: 22, sales: 120 },
-  { id: 4, name: 'Sérum Éclat Vitamine C', price: 12000, oldPrice: null, category: 'cosmetiques', categoryName: 'Cosmétiques', image: '/images/creme.jpg', isNew: true, isPromo: false, sales: 45 },
-  { id: 5, name: 'Perruque Bouclée Deep Wave', price: 35000, oldPrice: 45000, category: 'perruques', categoryName: 'Perruques', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 22, sales: 67 },
-  { id: 6, name: 'Vernis Semi-Permanent Nude', price: 4500, oldPrice: null, category: 'onglerie', categoryName: 'Onglerie', image: '/images/cosmetique.jpg', isNew: false, isPromo: false, sales: 34 },
-  { id: 7, name: 'Masque Hydratation Intense', price: 8500, oldPrice: 12000, category: 'cosmetiques', categoryName: 'Cosmétiques', image: '/images/creme.jpg', isNew: false, isPromo: true, discount: 29, sales: 78 },
-  { id: 8, name: 'Extensions Clips Naturelles', price: 15000, oldPrice: null, category: 'meches', categoryName: 'Mèches', image: '/images/perruque.jpg', isNew: true, isPromo: false, sales: 23 },
-  { id: 9, name: 'Parfum Mystère de l\'Orient', price: 48000, oldPrice: 60000, category: 'parfums', categoryName: 'Parfums', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 20, sales: 92 }
+  { id: 1, name: 'Perruque Lace Front Premium', price: 45000, oldPrice: 55000, category: 'perruques', categoryName: 'Perruques', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 18, sales: 89, rating: 5, brand: 'premium' },
+  { id: 2, name: 'Mèches Brésiliennes 14"', price: 18000, oldPrice: null, category: 'meches', categoryName: 'Mèches', image: '/images/perruque.jpg', isNew: true, isPromo: false, sales: 56, rating: 4, brand: 'florencia' },
+  { id: 3, name: 'Kit Onglerie Professionnel', price: 25000, oldPrice: 32000, category: 'onglerie', categoryName: 'Onglerie', image: '/images/cosmetique.jpg', isNew: false, isPromo: true, discount: 22, sales: 120, rating: 5, brand: 'premium' },
+  { id: 4, name: 'Sérum Éclat Vitamine C', price: 12000, oldPrice: null, category: 'cosmetiques', categoryName: 'Cosmétiques', image: '/images/creme.jpg', isNew: true, isPromo: false, sales: 45, rating: 4, brand: 'naturel' },
+  { id: 5, name: 'Perruque Bouclée Deep Wave', price: 35000, oldPrice: 45000, category: 'perruques', categoryName: 'Perruques', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 22, sales: 67, rating: 4, brand: 'florencia' },
+  { id: 6, name: 'Vernis Semi-Permanent Nude', price: 4500, oldPrice: null, category: 'onglerie', categoryName: 'Onglerie', image: '/images/cosmetique.jpg', isNew: false, isPromo: false, sales: 34, rating: 3, brand: 'naturel' },
+  { id: 7, name: 'Masque Hydratation Intense', price: 8500, oldPrice: 12000, category: 'cosmetiques', categoryName: 'Cosmétiques', image: '/images/creme.jpg', isNew: false, isPromo: true, discount: 29, sales: 78, rating: 5, brand: 'premium' },
+  { id: 8, name: 'Extensions Clips Naturelles', price: 15000, oldPrice: null, category: 'meches', categoryName: 'Mèches', image: '/images/perruque.jpg', isNew: true, isPromo: false, sales: 23, rating: 4, brand: 'naturel' },
+  { id: 9, name: 'Parfum Mystère de l\'Orient', price: 48000, oldPrice: 60000, category: 'parfums', categoryName: 'Parfums', image: '/images/perruque.jpg', isNew: false, isPromo: true, discount: 20, sales: 92, rating: 5, brand: 'florencia' }
 ])
 
 const getCategoryCount = (catId) => products.value.filter(p => p.category === catId).length
@@ -448,8 +434,12 @@ const filteredProducts = computed(() => {
   return products.value.filter(p => {
     const searchMatch = p.name.toLowerCase().includes(search.value.toLowerCase())
     const catMatch = selectedCategories.value.length === 0 || selectedCategories.value.includes(p.category)
+    const brandMatch = selectedBrands.value.length === 0 || selectedBrands.value.includes(p.brand)
     const priceMatch = p.price >= minPrice.value && p.price <= maxPrice.value
-    return searchMatch && catMatch && priceMatch
+    const ratingMatch = (p.rating || 0) >= minRating.value
+    const promoMatch = !showOnlyPromos.value || p.isPromo
+    const newMatch = !showOnlyNew.value || p.isNew
+    return searchMatch && catMatch && brandMatch && priceMatch && ratingMatch && promoMatch && newMatch
   })
 })
 
@@ -457,6 +447,7 @@ const sortedProducts = computed(() => {
   const list = [...filteredProducts.value]
   if (sortBy.value === 'prix') return list.sort((a, b) => a.price - b.price)
   if (sortBy.value === 'prix-desc') return list.sort((a, b) => b.price - a.price)
+  if (sortBy.value === 'note') return list.sort((a, b) => (b.rating || 0) - (a.rating || 0))
   return list.sort((a, b) => a.name.localeCompare(b.name))
 })
 
@@ -477,38 +468,38 @@ const displayedPages = computed(() => {
   return pages
 })
 
-const meilleurVente = computed(() => [...products.value].sort((a, b) => b.sales - a.sales)[0])
-const articleDuJour = computed(() => products.value.find(p => p.id === 3))
 const topVentes = computed(() => [...products.value].sort((a, b) => b.sales - a.sales).slice(0, 10))
+const totalTopVentesPages = computed(() => Math.ceil(topVentes.value.length / 5))
 const nouveautes = computed(() => products.value.filter(p => p.isNew).slice(0, 3))
 
 const scrollTopVentes = (direction) => {
-  const maxScroll = Math.ceil(topVentes.value.length / 5) - 1
+  const maxScroll = totalTopVentesPages.value - 1
   if (direction === 1 && topVentesScroll.value < maxScroll) topVentesScroll.value++
   if (direction === -1 && topVentesScroll.value > 0) topVentesScroll.value--
 }
 
 const viewCategory = (category) => {
   if (category === 'nouveautes') {
+    showOnlyNew.value = true
+    showOnlyPromos.value = false
     selectedCategories.value = []
-    sortBy.value = 'nom'
   }
   if (category === 'meilleures') {
-    selectedCategories.value = []
     sortBy.value = 'prix-desc'
-  }
-  if (category === 'promos') {
-    selectedCategories.value = []
-    // Afficher les produits en promo
   }
 }
 
 const resetFilters = () => {
   search.value = ''
   selectedCategories.value = []
+  selectedBrands.value = []
   minPrice.value = 0
   maxPrice.value = 100000
+  minRating.value = 0
+  showOnlyPromos.value = false
+  showOnlyNew.value = false
   currentPage.value = 1
+  sortBy.value = 'nom'
 }
 
 const addToCart = (product) => {
